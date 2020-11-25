@@ -1,0 +1,137 @@
+------------most used commands----------------------
+sudo service apache2 restart
+sudo vi /var/www/webApp/webApp/__init__.py
+sudo cat /var/log/apache2/error.log
+-----------------------------------------------------
+
+
+
+------------------------ START FROM HERE ----------------------------------
+-------------------------------------
+Setting the version of python to p3.8
+-------------------------------------
+
+sudo apt update -y
+sudo apt install python3.8
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
+
+
+sudo update-alternatives --config python3
+
+sudo rm /usr/bin/python3
+sudo ln -s python3.8 /usr/bin/python3
+
+
+----------------------------------------------------
+if facing issues in updating....
+---------------------------------------------------
+cd /usr/lib/python3/dist-packages/
+sudo ln -s apt_pkg.cpython-36m-x86_64-linux-gnu.so apt_pkg.so
+
+
+
+
+-------------------------------------
+Ubuntu server setup
+--------------------------------------
+
+sudo apt update
+sudo apt install apache2
+
+
+apache2 --version
+
+
+--------------------------------------
+Configuring Filewall
+-------------------------------------
+
+sudo ufw app list
+sudo ufw allow 'Apache'
+
+
+--------------------------------------
+Configuring Apache
+-------------------------------------
+sudo systemctl status apache2
+sudo apt-get install libapache2-mod-wsgi-py3
+sudo a2enmod wsgi 
+
+
+--------------------------------------
+Configuring Flask App setup
+--------------------------------------
+cd /var/www/
+mkdir webApp
+
+cd webApp
+mkdir webApp
+
+
+----------make a FLask App file----------
+sudo vi /var/www/webApp/webApp/__init__.py
+
+
+------------------------------------------
+Configuring webApp - .conf
+------------------------------------------
+sudo vi /etc/apache2/sites-available/webApp.conf
+
+------------------------------------------
+Configuring WSGI 
+------------------------------------------
+sudo vi /var/www/webApp/webapp.wsgi
+
+
+
+sudo a2ensite webApp
+sudo a2dissite default
+
+sudo systemctl reload apache2
+	
+
+
+sudo service apache2 restart 
+---------------------------------------------
+
+
+
+sudo apt install python3-pip
+pip3 install virtualenv
+
+
+sudo virtualenv venv
+source venv/bin/activate
+
+pip3 install flask
+pip3 install Keras==2.4.3
+pip3 install tensorflow==2.3.0
+pip3 install Pillow==7.0.0
+pip3 install numpy==1.18.5
+
+
+deactivate
+
+sudo /etc/apache/sites-available/webapp.conf
+sudo a2ensite webapp.conf
+sudo service apache restart
+
+
+
+------------------------Folder Structure-----------------------
+
+|--------webApp
+|----------------webApp
+|-----------------------static
+|-----------------------templates
+|-----------------------venv
+|-----------------------__init__.py
+|----------------webapp.wsgi
+
+
+
+---------------------------------  END  ------------------------
+
+
