@@ -10,5 +10,5 @@ logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,"/var/www/webApp/")
 
 from webApp import app as application
-application.secret_key = 'shivshaktiss17'
+application.secret_key = 'PU_YOUR_SECRET_KEY_HERE'
 
